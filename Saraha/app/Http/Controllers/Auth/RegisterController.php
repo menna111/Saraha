@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
+use App\Traits\ImageUpload;
 use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
@@ -22,7 +23,7 @@ class RegisterController extends Controller
     |
     */
 
-    use RegistersUsers;
+    use RegistersUsers,ImageUpload;
 
     /**
      * Where to redirect users after registration.
@@ -53,6 +54,7 @@ class RegisterController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'image' => ['required', 'file', 'min:8', 'mimes:png,jpg,jpeg,svg','max:4069'],
         ]);
     }
 
@@ -64,10 +66,13 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+//        dd($data);
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'image' => $this->uploadImage($data['image'],"profile",40),
+
         ]);
     }
 }
