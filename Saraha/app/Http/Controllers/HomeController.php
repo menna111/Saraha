@@ -24,8 +24,10 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $user=Auth::user();
+//        dd($user);
         $messages= Auth::user()->messages;
 //        dd($messages);
-        return view('home',compact('messages'));
+        return view('home',compact('messages','user'));
     }
 }
