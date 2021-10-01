@@ -11,6 +11,9 @@ class User extends Authenticatable
 {
     use Notifiable;
 
+    //protected $primaryKey='email'  لو عيزة استخدم مع (find) حاجة غير (id)ز
+
+
     /**
      * The attributes that are mass assignable.
      *

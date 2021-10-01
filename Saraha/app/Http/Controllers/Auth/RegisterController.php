@@ -50,11 +50,13 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
+//        dd($data);
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-            'image' => ['required', 'file', 'min:8', 'mimes:png,jpg,jpeg,svg','max:4069'],
+            'image' => ['required', 'file', 'mimes:png,jpeg,svg,jpg', 'max:4069'],
+
         ]);
     }
 
