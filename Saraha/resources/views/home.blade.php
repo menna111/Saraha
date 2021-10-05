@@ -4,10 +4,10 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
-                <h4 class="p-2" style="background-color: antiquewhite">share your link: <a href="{{route('message.create',$user->id)}}">Link</a></h4>
+            <div class="card" >
+                <h4 class="card-header p-2" >share your link: <a href="{{route('message.create',$user->id)}}">Link</a></h4>
 
-                <div class="card-header">{{ __($user->name) }} ({{$messages->count()}})</div>
+                <div    class="card-header">{{ __($user->name) }} ({{$messages->count()}})</div>
                 <div class="card-header" style="background-color: antiquewhite">
                     <div class="row text-center">
                         <div class="col-4">
