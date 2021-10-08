@@ -10,6 +10,7 @@ use App\Traits\ResponseTrait;
 class HomeController extends Controller
 {
     use ResponseTrait;
+
     public function index(){
         $messages=Message::select('content')->get();
         return $this->returnData('this is all data',$messages);
