@@ -21,13 +21,13 @@ trait ResponseTrait{
 
 
 
-  public function returnData($msg,$value):JsonResponse
+  public function returnData($msg,$value,$statusCode):JsonResponse
     {
         return response()->json([
                 'status' => false,
                 'msg' => $msg,
                 'data' => $value
-                ],200,['Content-Type' =>'application/json;charset-UTF-8']);
+                ],$statusCode,['Content-Type' =>'application/json;charset-UTF-8']);
     }
 
 

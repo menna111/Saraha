@@ -13,7 +13,7 @@ class HomeController extends Controller
 
     public function index(){
         $messages=Message::select('content')->get();
-        return $this->returnData('this is all data',$messages);
+        return $this->returnData('this is all data',$messages,200);
 
 
     }
